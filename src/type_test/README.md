@@ -1,4 +1,4 @@
-# 列表、元组、字典
+# 列表、元组、字典、集合
 
 1.序列封包和序列解包：
 - 序列封包：多个值赋给一个变量
@@ -49,3 +49,21 @@ for key, value in dic.items():
 15.zip()压缩多个列表生成一个可迭代对象，于是便可以使用一个for循环同时遍历N个关联列表
 
 16.reversed()可以翻转序列；sorted()可以将序列排序。
+
+17.元组的元素不能修改，但元组可以重新定义。
+
+18.list可以当做stack处理，使用`insert(value, -1)`和`pop()`的组合即可。
+
+19.list想要当成队列使用需要被包装即`deque(list_name)`，使用·`append`和`popleft()`组合即可。
+
+20.列表推导表达式示例：
+- 一维：
+    ```python
+    nums = [2, 4, 6]
+    print([3*x for x in nums])
+    ```
+- 二维：
+    ```python
+    matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+    print([[row[i] for row in matrix] for i in range(4)])
+    ```
