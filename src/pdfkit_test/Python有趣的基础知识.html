@@ -1,0 +1,548 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python有趣的基础知识</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1><a id="Python_0"></a>Python有趣的基础知识</h1>
+<p>1.格式化输出：</p>
+<pre><code class="prism language-python">your_name <span class="token operator">=</span> <span class="token string">"Bob"</span>
+my_name <span class="token operator">=</span> <span class="token string">"Sam"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"Hello, {your_name}! I'm {my_name}"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>输出结果：</p>
+<pre><code class="prism language-python">Hello<span class="token punctuation">,</span> Bob! I'm Sam
+</code></pre>
+<p>2.格式化输出：</p>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello, my name is {}."</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">"Sam"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>输出结果是：</p>
+<pre><code class="prism language-python">Hello<span class="token punctuation">,</span> my name <span class="token keyword">is</span> Sam<span class="token punctuation">.</span>
+</code></pre>
+<p>3.三种方法实现单行、多行注释：</p>
+<p>法1：<br>
+单行注释：Shift + #（在代码的最前面输入，非选中代码进行注释）<br>
+多行注释：同单行一样在每一行的前面输入Shift+#</p>
+<p>法2：<br>
+单行和多行一样的方式：选中需要注释的代码，Ctrl+/，写Java的时候就是常用的方法</p>
+<p>法3：<br>
+输入’’’ ‘’'或者""" “”"，将要注释的代码插在中间</p>
+<p>4.Python与Java在*的非数值运算用法的对比：</p>
+<p>首先看一下Java的’a’*10：</p>
+<pre><code class="prism language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>得到：</p>
+<pre><code class="prism language-java"><span class="token number">970</span>
+</code></pre>
+<p>然后是Java的"a"*10：</p>
+<pre><code class="prism language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>会报错的。</p>
+<p>解释：<br>
+Java中’a’的类型为char，char实际上是一个数值按照其ASCII码值映射的字符，可以做数值运算。'a’的ASCII码值为97，相当于97*10=&gt;970。<br>
+Java中的字符串不可以与数值相乘。</p>
+<p>再看看Python：</p>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre>
+<p>得到：</p>
+<pre><code class="prism language-python">aaaaaaaaaa
+</code></pre>
+<pre><code class="prism language-python">aaaaaaaaaa
+</code></pre>
+<p>解释：<br>
+""和’'其实是等效的，*在Python里可以用来将字符/字符串复制n遍，这里是10遍。</p>
+<p>5.Python与Java在+的非数值运算用法的对比：</p>
+<p>首先看一下Java的’a’+10：</p>
+<pre><code class="prism language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>得到：</p>
+<pre><code class="prism language-java"><span class="token number">107</span>
+</code></pre>
+<p>然后是Java的"a"+10：</p>
+<pre><code class="prism language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<pre><code class="prism language-java">a10
+</code></pre>
+<p>解释：<br>
+Java中’a’的类型为char，char实际上是一个数值按照其ASCII码值映射的字符，可以做数值运算。'a’的ASCII码值为97，相当于97+10=&gt;107。<br>
+Java中的字符串的+相当于把10变为字符串与已有字符串连接，得到“a10”。</p>
+<p>再看看Python：</p>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre>
+<p>都会报错。</p>
+<p>即使这样：</p>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre>
+<p>也是相当于打印两个变量，中间会有空格，始终不是一个变量。</p>
+<p>解释：<br>
+""和’'其实是等效的，在Python里字符串不能与数值直接相加。</p>
+<p>6.""""""是可以的，“ “ “ ” ” ”是不对的。</p>
+<p>7.直接将用户输入转化：<br>
+转成int：</p>
+<pre><code class="prism language-python">x <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>转成float：</p>
+<pre><code class="prism language-python">y <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>8.Python的print()从某种程度上相当于Java的System.out.println()或者说C#的Console.Writeline()，这是说执行后会换行。如果我们不想换行，可以这样：</p>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello, "</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">' '</span><span class="token punctuation">)</span>
+</code></pre>
+<p>9.格式化的强化</p>
+<pre><code class="prism language-python">formatter <span class="token operator">=</span> <span class="token string">"{} {} {}"</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">"李华"</span><span class="token punctuation">,</span> <span class="token string">"李刚"</span><span class="token punctuation">,</span> <span class="token string">"李想"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>formatter<span class="token punctuation">,</span> formatter<span class="token punctuation">,</span> formatter<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">"哈哈"</span><span class="token punctuation">,</span> <span class="token string">"嘎嘎"</span><span class="token punctuation">,</span> <span class="token string">"呵呵"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>结果：</p>
+<pre><code class="prism language-python"><span class="token number">7</span> <span class="token number">9</span> <span class="token number">8</span>
+李华 李刚 李想
+<span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token boolean">True</span> <span class="token boolean">True</span> <span class="token boolean">False</span>
+哈哈 嘎嘎 呵呵
+</code></pre>
+<p>10.导入命令行参数</p>
+<pre><code class="prism language-python"><span class="token keyword">from</span> sys <span class="token keyword">import</span> argv
+
+a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d <span class="token operator">=</span> argv
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"a is: "</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"b is: "</span><span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"c is: "</span><span class="token punctuation">,</span> c<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"d is: "</span><span class="token punctuation">,</span> d<span class="token punctuation">)</span>
+</code></pre>
+<p>可以在命令行运行的时候输入命令行参数：</p>
+<pre><code class="prism language-python">test<span class="token punctuation">.</span>py BeiJing ShangHai GuangZhou ShenZhen
+</code></pre>
+<p>这个就好像Java里面</p>
+<pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre>
+<p>这个语句的args[]数组。</p>
+<p>传入的都是字符串，哪怕是1,2,3这样的数值。</p>
+<p>11.一些Python的库介绍</p>
+
+<table>
+<thead>
+<tr>
+<th>Python框架</th>
+<th>主要用途简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Django</td>
+<td>Web开发工具库</td>
+</tr>
+<tr>
+<td>Numpy</td>
+<td>大量的维度数组与矩阵运算的数学函数库</td>
+</tr>
+<tr>
+<td>Matplotlib</td>
+<td>数据可视化库，多与Numpy配合使用</td>
+</tr>
+<tr>
+<td>Scipy</td>
+<td>机器学习和数值分析库</td>
+</tr>
+<tr>
+<td>Pandas</td>
+<td>数据操纵和分析库</td>
+</tr>
+<tr>
+<td>PyGame</td>
+<td>游戏开发库，带图形界面和声音</td>
+</tr>
+<tr>
+<td>ScraPy</td>
+<td>网络爬虫库</td>
+</tr>
+<tr>
+<td>TensorFlow</td>
+<td>机器学习和数据可视化库</td>
+</tr>
+<tr>
+<td>Requests</td>
+<td>简单易用的HTTP库</td>
+</tr>
+<tr>
+<td>Kivy</td>
+<td>桌面应用和移动平台的用户界面库</td>
+</tr>
+<tr>
+<td>Natural Language Tool Kit</td>
+<td>自然语言处理库，可用于分析文本、垃圾邮件过滤、自动聊天机器人</td>
+</tr>
+</tbody>
+</table><p>12.虽然python的命名多采用下划线（_），但是类的命名建议采用驼峰式。</p>
+<p>13.建议采用比较一致的方式组织函数或者类的方法，比如：函数A参数为(x, y, z)，B也需要用到x, y, z，那相对来讲写成(x, y, z)总比(y, z, x)易于管理。</p>
+<p>14.亲，好好写注释，好好写文档！！</p>
+<p>15.代码内部适当留白，应该有必要的空格或者空行以增强可读性。</p>
+<p>16.像JavaScript这种原型（prototype）语言中，类和对象除了用法以外没多少不同，对象从某种程度上可以看做类的副本，然而Python里面类很像创建对象的模板，这点和Java类似。</p>
+<p>17.super和__init__的搭配使用：</p>
+<pre><code class="prism language-python"><span class="token builtin">super</span><span class="token punctuation">(</span>Child<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>在Java里就是相当于：</p>
+<pre><code class="prism language-java"><span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><s>（这么说也不是太准确其实）</s></p>
+<p>18.大部分可以使用继承的场合都可以使用组合取代或者简化，而多重继承则需要不惜一切地避免。<br>
+（Java没有多继承并利用Interface来补充缺乏多继承的灵活性，这个设计真的强）</p>
+<p>19.python有这样的写法：class className(object)，这个语法吧，写也行不写也行，一般还是懒得写。这就好像Java里所有的类都是java.lang.Object的子类，然而并没有必要去写:</p>
+<pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token keyword">extends</span> <span class="token class-name">Object</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre>
+<p>这玩意自己决定吧……</p>
+<p>20.Python面向对象里的self就可以用Java里的this来理解，只不过两门编程语言还是有语法使用上的差别的。</p>
+<p>21.Python中有一种“key-value”的模式，应用广泛。<br>
+这个东西不要仅仅想到“字典”数据结构，再想想，是不是模块啊，类啊也是通过"XXX.key"的方式调用出"value"的呢？<br>
+这个概念是一个广泛应用的概念。</p>
+<p>22.模块（module）的一些说明：</p>
+<ul>
+<li>模块是包含函数和变量的Python文件(.py)</li>
+<li>可以导入这些文件（import）</li>
+<li>可以使用.操作符访问模块中的函数和变量</li>
+<li>类与模块也是异曲同工的，只不过一个面向过程，一个面向对象</li>
+</ul>
+<p>23.collections.OrderedDict是可排序的字典结构。<br>
+字典这东西，Java也有java.util.Dictionary，可以用Java里的java.util.Map类比，都是“ket-value”。<br>
+至于能排序的Dic，Java的java.util.TreeMap说的直白点儿，不就是红黑树支持的排序Map吗……</p>
+<p>24.Python这个“切片”是真的强，Java就必须顺着来，Python就无所谓，可以正着来也能倒着来，还能一端“开放不限界”。不过，“左闭右开”是通用的。</p>
+<p>25.通用的经验：不要等全部开发完再测试，单元测试、模块化的测试应该及时的做好啊~~</p>
+<p>26.Java里面啊，想给用户输入加提示信息就非得先Sytem.out.print()一下，Python就可以直接在input()里加入参数，这个参数其实是打印给用户看的。</p>
+<pre><code class="prism language-python">x <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入一个数字"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>27.Python的输入还是挺方便的，input()省事啊……<br>
+先看看Python的写法：</p>
+<pre><code class="prism language-python">x <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>看看Java的写法：</p>
+<pre><code class="prism language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Scanner<span class="token punctuation">;</span>
+
+        <span class="token comment">//类和方法省却了……直接写代码</span>
+        Scanner scan <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String x <span class="token operator">=</span> scan<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        scan<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>差距啊……人生苦短，我用Python……</p>
+<p>28.for循环写起来更简洁，而且用于for each写法显得更简单。<br>
+But，while确实是可以对任何对象进行循环，适用面较广。<br>
+while最恶心的是它有可能一直“停不下来”。<br>
+比如说，在Java中，我总是被这样的写法恶心到炸裂：</p>
+<pre><code class="prism language-java"><span class="token keyword">while</span><span class="token punctuation">(</span>scan<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    String a <span class="token operator">=</span> scan<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>这操作，啥时候是个尽头啊……我的天……<br>
+建议：</p>
+<ul>
+<li>少使用while循环，大部分的时候for循环能用的话是更优选择。</li>
+<li>检查好while循环的判断语句，确保有False存在的可能性，防止死循环。</li>
+<li>如果不能确定，在while循环的开始和结尾打印出需要测试的值，看看变化。</li>
+</ul>
+<p>while(true)可以写具有某种退出条件的“无限循环”——某些想一直跑下去的命令行程序就需要一个while(true)的大循环。</p>
+<p>不过，之前有看过Java编译后的结果，for(;;)和while(true)其实是等效的，只不过编译的过程目前我就不晓得了。</p>
+<p>29.列表和数组的区别需要因编程语言而异。<br>
+从传统的、经典的定义看来，二者很不同，但是现在的很多编程语言有一些与传统规定不同的地方。<br>
+Ruby里面列表、数组统称数组。<br>
+而伟大的Python里面列表、数组统称列表。<br>
+不用问，问就是规定……</p>
+<p>30.in range()这个操作不只是用于for i in range(x)，还可以这么玩：</p>
+<pre><code class="prism language-python">x <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入一个整数，将检查其是否在1~5"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>其实我想，这才是本意吧……</p>
+<p>31.Python是有 not or （或非）和 not and （与非）的，不过可不能那么写啊……</p>
+<pre><code class="prism language-python"><span class="token operator">not</span><span class="token punctuation">(</span>a <span class="token operator">and</span> b<span class="token punctuation">)</span>
+<span class="token operator">not</span><span class="token punctuation">(</span>a <span class="token operator">or</span> b<span class="token punctuation">)</span>
+</code></pre>
+<p>这样才是正解（前提是a，b均为布尔型变量）</p>
+<p>32.UTF-8支持中文编码的，不过它的编码是这样的：（概述）<br>
+大部分常用的编码用8位编码，如果不够再换用16位、32位表示。<br>
+UTF-8的标准还是挺常用的。<br>
+不过Windows系统中文编码貌似用的是GBK而非UTF-8，搞不好可是会乱码的啊~~</p>
+<p>33.readline()读文件，关键在于读“\n”。同样的，该函数返回结果带有“\n”换行符，这个是需要注意的。<br>
+print的话可以加一个end=’ '参数。</p>
+<p>34.open文件指定字符集是可以的啊,比如：</p>
+<pre><code class="prism language-python">lang <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"lang.txt"</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>35.有这样一个东西：*args</p>
+<pre><code class="prism language-python"><span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># balabala</span>
+</code></pre>
+<p>其实就是和argv那东西挺像，只不过这是函数调用，那是命令行参数传入程序。</p>
+<p>36.看这样的写法：</p>
+<pre><code class="prism language-python">data <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>这样的话就没法运行close()了，因为read()一旦运行，文件就会被Python关掉……</p>
+<p>37.exists是个好东西啊</p>
+<pre><code class="prism language-python"><span class="token keyword">from</span> os<span class="token punctuation">.</span>path <span class="token keyword">import</span> exists
+</code></pre>
+<p>上面的语句可以调出来exists。</p>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"这个文件存在吗？{exists(file)}"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>这样可以先判一下文件存在不存在，这是挺重要的东西，可以提前排错。</p>
+<p>Java给我印象很深的一个是：instanceof<br>
+用这个instanceof确实能在ClassCast的时候安全一些。</p>
+<p>38.Python增量赋值语法：</p>
+<pre><code class="prism language-python">var <span class="token operator">=</span> var <span class="token operator">+</span> <span class="token number">1</span>
+</code></pre>
+<p>或者是</p>
+<pre><code class="prism language-python">var <span class="token operator">+=</span> <span class="token number">1</span>
+</code></pre>
+<p>但是下面的语句会报错：</p>
+<pre><code class="prism language-python">var<span class="token operator">+</span><span class="token operator">+</span>
+</code></pre>
+<p>这就比较起Java、C等编程语言，是一个需要适应的点，毕竟没有简便的++var和var++了啊！<br>
+不过，Java里非整型变量不能直接自增自减。<br>
+Python毕竟不是直接定义了类型，所以这么写也是可以理解的啊。</p>
+<p>39.Python运算符有一些和Java、C等编程语言不同的点：<br>
+它支持整除（//）、非整除（/）和指数（**）两种运算。<br>
+Java里想做指数运算就比这个麻烦得多：</p>
+<pre><code class="prism language-java"><span class="token keyword">double</span> result <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>40.eval()、int()、float()、str()函数可以直接用于input()函数内部，也可以另作他用。<br>
+看下面的示例：</p>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">(</span><span class="token string">"23"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">float</span><span class="token punctuation">(</span><span class="token string">"23"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">eval</span><span class="token punctuation">(</span><span class="token string">"23"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">23</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">eval</span><span class="token punctuation">(</span><span class="token string">"23.5"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+x <span class="token operator">=</span> <span class="token number">5</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">eval</span><span class="token punctuation">(</span><span class="token string">"23 + (2 *x)"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>输出：</p>
+<pre><code class="prism language-python"><span class="token number">23</span>
+<span class="token number">23.0</span>
+<span class="token number">23</span>
+<span class="token number">23</span>
+<span class="token number">23.5</span>
+<span class="token number">33</span>
+</code></pre>
+<p>归纳：</p>
+<ul>
+<li>int()可以将字符串转换成整型</li>
+<li>float()可以将字符串、整型转换成浮点型</li>
+<li>str()可以将数值型转换成字符串</li>
+<li>eval()可以计算相应表达式，赋值为相应的数值类型（整型或浮点型）</li>
+</ul>
+<p>41.下面是表示字符串内行连续的两种方式，请看下面的示例：</p>
+<pre><code class="prism language-python">a <span class="token operator">=</span> <span class="token string">"Hello, "</span> <span class="token operator">+</span> \
+	<span class="token string">"World!"</span>
+</code></pre>
+<pre><code class="prism language-python">b <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"Hello, "</span> <span class="token operator">+</span> 
+	<span class="token string">"World ~ Again!"</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20191120183708988.PNG" alt="在这里插入图片描述"></p>
+<p>而Java由于是{} 、[] 、() 、; 、，这些起到分隔作用的来决定，String的对象可以这么写：</p>
+<pre><code class="prism language-java">String a <span class="token operator">=</span> <span class="token string">"Hello, "</span> <span class="token operator">+</span> 
+	<span class="token string">"World!"</span><span class="token punctuation">;</span>
+</code></pre>
+<p>42.Python的print()有两个需要记住的参数：<br>
+sep=“” 和 end=""<br>
+看下面的例子：</p>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">,</span> <span class="token string">"World"</span><span class="token punctuation">,</span> sep<span class="token operator">=</span><span class="token string">"**"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">,</span> <span class="token string">"World"</span><span class="token punctuation">,</span> sep<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">,</span> <span class="token string">"+"</span><span class="token punctuation">,</span> <span class="token string">"2"</span><span class="token punctuation">,</span> <span class="token string">"="</span><span class="token punctuation">,</span> <span class="token string">"3"</span><span class="token punctuation">,</span> sep<span class="token operator">=</span><span class="token string">" "</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hi"</span><span class="token punctuation">,</span> <span class="token string">"Sam"</span><span class="token punctuation">,</span> sep<span class="token operator">=</span><span class="token string">"#"</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">" "</span><span class="token punctuation">)</span>
+</code></pre>
+<p>输出结果</p>
+<p><img src="https://img-blog.csdnimg.cn/20191120184509519.PNG" alt="在这里插入图片描述"></p>
+<p>总结：<br>
+sep=“sepString"中，sepString替换了分隔符Space（” “）<br>
+end=“endString"中，endString替换了换行符Enter（”\n”）</p>
+<p>43.Python输出域内对齐<br>
+如果字符串长度没达到指定的长度，则不够的部分用空白补齐；否则（超出长度），对齐无效。<br>
+对齐方式三种：</p>
+<ul>
+<li>ljust(n)：左对齐</li>
+<li>rjust(n)：右对齐</li>
+<li>center(n)：居中对齐</li>
+</ul>
+<p>看下面的例子：</p>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"012345678901234567890123456789"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Rank"</span><span class="token punctuation">.</span>ljust<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"Player"</span><span class="token punctuation">.</span>center<span class="token punctuation">(</span><span class="token number">22</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"HR"</span><span class="token punctuation">.</span>rjust<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sep<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">.</span>ljust<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"XiaoBiao"</span><span class="token punctuation">.</span>center<span class="token punctuation">(</span><span class="token number">22</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"100"</span><span class="token punctuation">.</span>rjust<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sep<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"2"</span><span class="token punctuation">.</span>ljust<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"XiaoChi"</span><span class="token punctuation">.</span>center<span class="token punctuation">(</span><span class="token number">22</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"98"</span><span class="token punctuation">.</span>rjust<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sep<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"3"</span><span class="token punctuation">.</span>ljust<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"XiaoDai"</span><span class="token punctuation">.</span>center<span class="token punctuation">(</span><span class="token number">22</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"93"</span><span class="token punctuation">.</span>rjust<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sep<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"4"</span><span class="token punctuation">.</span>ljust<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"XiaoSha"</span><span class="token punctuation">.</span>center<span class="token punctuation">(</span><span class="token number">22</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"60"</span><span class="token punctuation">.</span>rjust<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sep<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20191120185952455.PNG" alt="在这里插入图片描述"></p>
+<p>非常遗憾的是，我们用中文就不怎么理想：<br>
+<img src="https://img-blog.csdnimg.cn/20191120190022539.PNG" alt="在这里插入图片描述"></p>
+<p>44.格式化数值（主要是浮点数）输出</p>
+
+<table>
+<thead>
+<tr>
+<th>语句</th>
+<th>输出</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>print("{0:10d}".format(12345678))</td>
+<td>12345678</td>
+<td>数字是个整型</td>
+</tr>
+<tr>
+<td>print("{0:10,d}".format(12345678))</td>
+<td>12,345,678</td>
+<td>添加千分符</td>
+</tr>
+<tr>
+<td>print("{0:10.2f}".format(1234.5678))</td>
+<td>1234.57</td>
+<td>四舍五入</td>
+</tr>
+<tr>
+<td>print("{0:10,.2f}".format(1234.5678))</td>
+<td>1,234.57</td>
+<td>四舍五入并添加千分符</td>
+</tr>
+<tr>
+<td>print("{0:10,.3f}".format(1234.5678))</td>
+<td>1,234.568</td>
+<td>四舍五入并添加千分符</td>
+</tr>
+<tr>
+<td>print("{0:10.2%}".format(12.345678))</td>
+<td>1234.57%</td>
+<td>转换为百分数、四舍五入并添加千分符</td>
+</tr>
+<tr>
+<td>print("{0:10,.3%}".format(12.345678))</td>
+<td>1,234.568%</td>
+<td>转换为百分数、四舍五入并添加千分符</td>
+</tr>
+</tbody>
+</table><p>45.列表的split()和join()方法</p>
+<ul>
+<li>split()：将字符串分割生成列表</li>
+<li>join()：将列表元素拼接成字符串</li>
+</ul>
+<p>看下面的例子：</p>
+<pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"a,b,c"</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"a**b**c"</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"**"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"a\nb\nc"</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"a b c"</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>查看输出：<br>
+<img src="https://img-blog.csdnimg.cn/20191120191243636.PNG" alt="在这里插入图片描述"></p>
+<p>注意，split()方法没传参数，参数默认是空白字符，这个空白字符可以是Space、Tab、Enter<br>
+接着看例子：</p>
+<pre><code class="prism language-python">hello <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"H"</span><span class="token punctuation">,</span> <span class="token string">"e"</span><span class="token punctuation">,</span> <span class="token string">"l"</span><span class="token punctuation">,</span> <span class="token string">"l"</span><span class="token punctuation">,</span> <span class="token string">"o"</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>hello<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>hello<span class="token punctuation">)</span><span class="token punctuation">)</span>
+world <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"W"</span><span class="token punctuation">,</span> <span class="token string">"o"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span> <span class="token string">"l"</span><span class="token punctuation">,</span> <span class="token string">"d"</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">", "</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>world<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20191120191644504.PNG" alt="在这里插入图片描述"></p>
+<p>这种操作是非常常见的，而Python的支持也使其变得十分简单。<br>
+这方面Java也有支持（IDEA打开）：<br>
+<img src="https://img-blog.csdnimg.cn/20191120193129568.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg5NjMxOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/20191120193144126.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg5NjMxOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+上面的代码是我自己以前写着玩的某一个项目的部分代码（写的挺烂），不过可见Java里这种切分与组合还是很重要的！</p>
+<p>46.注意下面的语句：</p>
+<pre><code class="prism language-python">list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"1"</span><span class="token punctuation">,</span> <span class="token string">"2"</span><span class="token punctuation">]</span>
+list2 <span class="token operator">=</span> list1
+<span class="token keyword">del</span> list1<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>list2<span class="token punctuation">)</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20191120191936965.PNG" alt="在这里插入图片描述"></p>
+<p>可见：这里是浅复制！！这里是比较深的知识，在Java里深拷贝也是比较有趣的知识，建议感兴趣的读者了解一下。<br>
+浅复制可以简单地解释为：这两个对象指向同一块内存空间，一个改变则全都改变。</p>
+<p>47.Python里面，切片等操作也是不能索引越界的呀！<br>
+否则会爆出IndexError（只不过Python允许负数索引，即“倒着找”）。<br>
+Java则是IndexOutOfBoundsException那种异常。<br>
+看下面的例子：<br>
+<img src="https://img-blog.csdnimg.cn/20191120192556904.PNG" alt="在这里插入图片描述"><br>
+<img src="https://img-blog.csdnimg.cn/20191120192604543.PNG" alt="在这里插入图片描述"><br>
+48.Python一些分析string内部字符后返回True/False的方法：</p>
+
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>返回True的条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>str1.isdigit()</td>
+<td>str1的所有字符都是数字</td>
+</tr>
+<tr>
+<td>str1.isalpha()</td>
+<td>str1的所有字符都是字母</td>
+</tr>
+<tr>
+<td>str1.isalnum()</td>
+<td>str1的所有字符都是字母或者数字</td>
+</tr>
+<tr>
+<td>str1.islower()</td>
+<td>str1的所有字符都是小写字母</td>
+</tr>
+<tr>
+<td>str1.isupper()</td>
+<td>str1的所有字符都是大写字母</td>
+</tr>
+<tr>
+<td>str1.isspace()</td>
+<td>str1的所有字符都是空白字符</td>
+</tr>
+</tbody>
+</table><p>49.Python也有一个判断类型的神奇方法——isinstance()：<br>
+语法格式：</p>
+<pre><code class="prism language-python"><span class="token builtin">isinstance</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> dataType<span class="token punctuation">)</span>
+</code></pre>
+<p>返回布尔类型</p>
+<p>50.简化表达式条件：</p>
+<p>（1）先看一个例子：</p>
+<pre><code class="prism language-python"><span class="token punctuation">(</span>state <span class="token operator">==</span> <span class="token string">"A"</span><span class="token punctuation">)</span> <span class="token operator">or</span> <span class="token punctuation">(</span>state <span class="token operator">==</span> <span class="token string">"B"</span><span class="token punctuation">)</span> <span class="token operator">or</span> <span class="token punctuation">(</span>state <span class="token operator">==</span> <span class="token string">"C"</span><span class="token punctuation">)</span> <span class="token operator">or</span> <span class="token punctuation">(</span>state <span class="token operator">==</span> <span class="token string">"D"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>可以简化为：</p>
+<pre><code class="prism language-python">state <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">"A"</span><span class="token punctuation">,</span> <span class="token string">"B"</span><span class="token punctuation">,</span> <span class="token string">"C"</span><span class="token punctuation">,</span> <span class="token string">"D"</span><span class="token punctuation">]</span>
+</code></pre>
+<p>（2）下面的表达式：</p>
+<pre><code class="prism language-python"><span class="token punctuation">(</span>x <span class="token operator">&gt;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;=</span> <span class="token number">20</span><span class="token punctuation">)</span>
+</code></pre>
+<p>可以写成：</p>
+<pre><code class="prism language-python"><span class="token number">10</span> <span class="token operator">&lt;</span> x <span class="token operator">&lt;=</span> <span class="token number">20</span>
+</code></pre>
+<p><s>（这是C、Java等语言不能写的，我大Python就是行，牛不牛？）</s></p>
+<p>（3）还有下面的语句：</p>
+<pre><code class="prism language-python"><span class="token punctuation">(</span>x <span class="token operator">&gt;=</span> <span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">or</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre>
+<p>可以利用德.摩根律转换为：</p>
+<pre><code class="prism language-python"><span class="token operator">not</span><span class="token punctuation">(</span><span class="token number">10</span> <span class="token operator">&lt;</span> x <span class="token operator">&lt;</span> <span class="token number">20</span><span class="token punctuation">)</span>
+</code></pre>
+<p>51.Python的集合（Set）的重要方法：</p>
+<ul>
+<li>add()：增</li>
+<li>discard()：删</li>
+<li>clear()：清空</li>
+</ul>
+<p>还有这样的方法<br>
+set([…]) / set((…))可以将列表或者元组转换成无序集合</p>
+<p>Python还支持集合论的基本操作——交/并/差 等：</p>
+<ul>
+<li>set1.union(set2)：并集</li>
+<li>set1.intersection(set2)：交集</li>
+<li>set1.difference(set2)：差集</li>
+</ul>
+</div>
+</body>
+
+</html>
